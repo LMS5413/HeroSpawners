@@ -26,7 +26,9 @@ repositories {
     maven("https://jitpack.io")
     maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://repo.dustplanet.de/artifactory/libs-release-local")
-    maven("https://hub.spigotmc.org/nexus/content/groups/public/")
+    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://oss.sonatype.org/content/repositories/central/")
 }
 
 dependencies {
@@ -41,6 +43,7 @@ dependencies {
     compileOnly("com.github.decentsoftware-eu:decentholograms:2.3.1")
     compileOnly("uk.antiperson.stackmob:StackMob:5.5.4")
     compileOnly("com.gmail.filoghost.holographicdisplays:holographicdisplays-api:2.4.0")
+    compileOnly(files("./Libs/JH_StackMobs.jar"))
     compileOnly("de.dustplanet:silkspawners:7.4.0") {
         exclude(group = "org.spigotmc")
         exclude(group = "com.sk89q")
@@ -51,7 +54,7 @@ dependencies {
 
     compileOnly(fileTree("Libs"))
 
-    compileOnly("org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
 }
 
 java {
@@ -65,6 +68,10 @@ java {
 tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
+    }
+
+    build {
+        dependsOn("shadowJar")
     }
 
     javadoc {

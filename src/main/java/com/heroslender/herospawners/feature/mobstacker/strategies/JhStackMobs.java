@@ -20,10 +20,10 @@ public class JhStackMobs implements MobStackerStrategy {
 
     @Override
     public boolean createOrAddStack(ISpawner spawner, Entity entity, int quantidade) {
-        int limite = Main.getInstace().iiIIiIIIii;
+        int limite = Main.getInstace().iIIIiIiiii;
 
         if (!Main.getInstance().getConfig().getBoolean("Stack.NovoMob")) {
-            List<Entity> nearbyEntities = entity.getNearbyEntities(Main.getInstace().IiIIIIIiii, Main.getInstace().iIiiiiiiii, Main.getInstace().iiIIiiiIIi);
+            List<Entity> nearbyEntities = entity.getNearbyEntities(Main.getInstace().IiIIiiIIII, Main.getInstace().IIIIIiiiII, Main.getInstace().iIiIiIIIiI);
             for (Entity nearbyEntity : nearbyEntities) {
                 if (nearbyEntity.isValid() && nearbyEntity != entity && !nearbyEntity.equals(entity)) {
                     if (nearbyEntity.getType() != entity.getType()) {
